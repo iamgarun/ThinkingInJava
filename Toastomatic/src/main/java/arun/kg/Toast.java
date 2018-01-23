@@ -1,13 +1,13 @@
 package arun.kg;
 
-public class Toast {
+class Toast {
 
     // To store the current status of this toast
     private ToastStatus status;
 
     private int id;
 
-    public Toast(ToastStatus status, int id) {
+    Toast(ToastStatus status, int id) {
         this.status = status;
         this.id = id;
     }
@@ -18,27 +18,27 @@ public class Toast {
     }
 
 
-    public void butterToast() {
+    void butterToast() {
         this.status = ToastStatus.BUTTERED;
     }
 
-    public void peanutButterToast() {
+    void peanutButterToast() {
         this.status = ToastStatus.PEANUTBUTTERED;
     }
 
-    public void jamToast() {
+    void jamToast() {
         this.status = ToastStatus.JAMMED;
     }
 
-    public void jellyToast() {
+    void jellyToast() {
         this.status = ToastStatus.JELLIED;
     }
 
-    public void setId(int id) {
+    void setId(int id) {
         this.id = id;
     }
 
-    public int getId() {
+    int getId() {
         return id;
     }
 }

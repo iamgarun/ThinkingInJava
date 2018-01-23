@@ -3,18 +3,21 @@ package arun.kg;
 import java.util.concurrent.BlockingQueue;
 import java.util.function.Consumer;
 
-public class Work {
+class Work {
 
-    public static void doWork(BlockingQueue<Toast> incomingQueue, BlockingQueue<Toast> outgoingQueue, Consumer<Toast> toastWork){
+    private Work(){
+
+    }
+
+    public static void doWork(String workerName, BlockingQueue<Toast> incomingQueue, BlockingQueue<Toast> outgoingQueue, Consumer<Toast> toastWork){
         try {
             while(!Thread.interrupted()) {
-                Toast toast = null;
-                toast = incomingQueue.take();
+                Toast toast = incomingQueue.take();
                 toastWork.accept(toast);
                 outgoingQueue.add(toast);
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println(String.format("Interrupted worker: %s",workerName));
         }
     }
 }

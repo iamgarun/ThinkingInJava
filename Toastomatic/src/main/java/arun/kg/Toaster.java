@@ -1,14 +1,13 @@
 package arun.kg;
 
-import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-public class Toaster implements Runnable {
+class Toaster implements Runnable {
 
     private BlockingQueue<Toast> currentQueue;
 
-    public Toaster(BlockingQueue<Toast> currentQueue) {
+    Toaster(BlockingQueue<Toast> currentQueue) {
         this.currentQueue = currentQueue;
     }
 
@@ -16,7 +15,6 @@ public class Toaster implements Runnable {
     public void run() {
 
         int count = 1;
-        Toast toast = null;
 
         try {
             while (!Thread.interrupted()) {
@@ -26,7 +24,7 @@ public class Toaster implements Runnable {
                 count++;
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Interruped the worker: Toaster");
         }
     }
 }
