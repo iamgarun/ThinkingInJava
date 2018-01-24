@@ -1,14 +1,12 @@
 package arun.kg;
 
-import arun.kg.log.LoggingConfig;
-
 import java.util.concurrent.BlockingQueue;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 
 class Work {
 
-    private static final Logger LOGGER = LoggingConfig.getNewLogger(Work.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(Work.class.getName());
 
     private Work(){
 

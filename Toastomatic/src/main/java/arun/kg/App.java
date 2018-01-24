@@ -10,9 +10,12 @@ import java.util.logging.Logger;
  */
 public class App {
 
-    private static final Logger LOGGER = LoggingConfig.getNewLogger(App.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(App.class.getName());
 
     public static void main(String[] args) throws InterruptedException {
+
+        LoggingConfig.initializeLogging();
+
         BlockingQueue<Toast> dryQueue = new LinkedBlockingQueue<>();
         BlockingQueue<Toast> butterQueue = new LinkedBlockingQueue<>();
         BlockingQueue<Toast> peanutButterQueue = new LinkedBlockingQueue<>();
